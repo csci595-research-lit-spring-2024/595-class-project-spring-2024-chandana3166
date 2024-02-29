@@ -15,19 +15,45 @@ Previous studies, such as that by \cite{seema2016predictive}, have focused on pr
 
 \cite{pal2021prediction}In this study, the researchers implemented the random forest data mining algorithm to predict heart disease. Their experimental results showed a sensitivity of 90.6, specificity of 82.7, and an overall accuracy of 86.9 for heart disease prediction. The proposed system achieved a classification accuracy of 86.9 and a diagnosis rate of 93.3 using the random forest algorithm. The researchers suggest that the system could also be used for predicting other diseases by applying different machine learning algorithms such as Naïve Bayes, decision tree, K-NN, linear regression, and fuzzy logic to improve accuracy. They also propose the use of cloud computing technology to manage large volumes of patient data.
 
-\section{Example of ``risk'' of unintentional plagiarism}
-Using other sources, ideas, and material always bring with it a risk of unintentional plagiarism. 
+\section{Machine Learning : SVM and Random Forest }
 
-\noindent
-\textbf{\color{red}MUST}: do read the university guidelines on the definition of plagiarism as well as the guidelines on how to avoid plagiarism~\citep{uor_plagiarism}.
+\subsection{Machine Learning}
+
+In the realm of artificial intelligence, machine learning is dedicated to developing statistical models and algorithms that enhance a computer's performance in specific tasks without the need for explicit programming. It revolves around utilizing statistical models and algorithms to execute tasks without direct instructions, relying heavily on pattern recognition and prediction.
+
+\subsection{Support Vector Machine}
+
+A supervised machine learning approach called Support Vector Machine (SVM) is commonly used for classification problems, while it can also be used for regression tasks. The way SVM works is that it finds the hyperplane in the input data set that best divides different classes. The margin, or the distance between the hyperplane and the nearest data point from each class also known as the support vectors is optimized when choosing this particular hyperplane. Because SVM uses a small amount of memory and performs well in high-dimensional spaces, it can be used to datasets with a large number of features.
+
+\subsection{Random Forest}
+
+In order to create the class that represents the mean prediction (for regression) or the mode of the classes (for classification), Random Forest is an ensemble learning technique that creates many decision trees during training. Each tree in a Random Forest is trained using a subset of the training set, and the ultimate prediction can be determined by polling (for classification) or by averaging the predictions of all the trees (for regression). High accuracy, scalability, and the capacity to handle big datasets with high dimensionality are attributes of Random Forest.
+
+
 
 
 
 
 % A possible section of you chapter
 \section{Critique of the review} % Use this section title or choose a betterone
-Describe your main findings and evaluation of the literature. ~\\
+The literature review offers insightful information about the application of machine learning algorithms more especially, SVM and Random Forest for the diagnosis and prognosis of cardiac disease.\cite{seema2016predictive}revealed how SVM may be used to achieve high overall accuracy, while Naive Bayes showed encouraging findings in terms of diabetes prediction. This implies that SVM would work well for our research on the identification of heart disease, especially given its ability to hande high-dimensional data.
+
+ ~\\
+\cite{shetty2016different}highlighted the significance of feature selection in machine learning models by proposing a prediction strategy for diagnosing heart disease based on 13 risk variables. This can be a useful case study for our work, highlighting the necessity of selecting relevant characteristics with consideration in order to increase the accuracy of our model.
+~\\
+\
+
+\cite{pal2021prediction} achieved a high sensitivity, specificity, and overall accuracy in their implementation of Random Forest for heart disease prediction. Their methodology demonstrates how ensemble approaches can enhance prediction performance, and we can take this into account when comparing Random Forest and SVM in our own study.
+
+\
+
+
+
+
+
+
+
 
 % Pleae use this section
 \section{Summary} 
-Write a summary of this chapter~\\
+Overall, the reviewed studies provide a solid foundation and examples for our research on comparing SVM and Random Forest for heart disease detection. We can leverage their methodologies and findings to design our experiments, select appropriate features, and evaluate the performance of the algorithms effectively.
