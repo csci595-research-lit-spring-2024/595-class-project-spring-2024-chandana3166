@@ -3,43 +3,36 @@
 \chapter{Methodology}
 \label{ch:method} % Label for method chapter
 
-We mentioned in Chapter~\ref{ch:into} %[example backward reference to a chapter or section.]
-that a project report's structure could follow a particular paradigm. Hence, the organization of a report (effectively the Table of Content of a report) can vary depending on the type of project you are doing. Check which of the given examples suit your project. Alternatively, follow your supervisor's advice.
 
-\section{Examples of the sections of a methodology chapter}
-A general report structure is summarised (suggested) in Table~\ref{tab:gen_template}. Table~\ref{tab:gen_template} describes that, in general, a typical report structure has three main parts: (1) front matter, (2) main text, and (3) end matter. %[\textbf{also notice that the preceding sentence is an example of a numbered list in a text body}]. 
-The structure of the front matter and end matter will remain the same for all the undergraduate final year project report. However, the main text varies as per the project's needs.
-\begin{table}[ht!]
+\section{Dataset Description}
+
+The Kaggle heart disease dataset\cite{lapp-heart-disease-dataset-1988}, which has 303 samples with 14 attributes each, was used in this investigation. The dataset includes a number of clinical characteristics that are frequently used to determine whether a patient has cardiac disease. Each sample has the following characteristics and represents a patient:
+
+\begin{enumerate}
+    \item Age (\textit{age}): The age of the patient in years.
+    \item Sex (\textit{sex}): The gender of the patient (1 = male, 0 = female).
+    \item Chest Pain Type (\textit{cp}): The type of chest pain experienced by the patient, categorized into four types: typical angina (1), atypical angina (2), non-anginal pain (3), and asymptomatic (4).
+    \item Resting Blood Pressure (\textit{trestbps}): The resting blood pressure of the patient in mm Hg.
+    \item Serum Cholesterol (\textit{chol}): The serum cholesterol level of the patient in mg/dl.
+    \item Fasting Blood Sugar (\textit{fbs}): The fasting blood sugar level of the patient, where 1 indicates a fasting blood sugar level greater than 120 mg/dl and 0 indicates a level less than or equal to 120 mg/dl.
+    \item Resting Electrocardiographic Results (\textit{restecg}): The resting electrocardiographic results of the patient, categorized into three types: normal (0), having ST-T wave abnormality (1), and showing probable or definite left ventricular hypertrophy (2).
+    \item Maximum Heart Rate Achieved (\textit{thalach}): The maximum heart rate achieved by the patient.
+    \item Exercise-Induced Angina (\textit{exang}): Whether the patient experienced exercise-induced angina (1 = yes, 0 = no).
+    \item ST Depression Induced by Exercise Relative to Rest (\textit{oldpeak}): The ST depression induced by exercise relative to rest.
+    \item Slope of the Peak Exercise ST Segment (\textit{slope}): The slope of the peak exercise ST segment, categorized into three types: upsloping (1), flat (2), and downsloping (3).
+    \item Number of Major Vessels Colored by Fluoroscopy (\textit{ca}): The number of major vessels colored by fluoroscopy, ranging from 0 to 3.
+    \item Thalassemia (\textit{thal}): The thalassemia status of the patient, categorized into three types: normal (3), fixed defect (6), and reversible defect (7).
+    \item Target (\textit{target}): The presence of heart disease in the patient, where 1 indicates the presence of heart disease and 0 indicates the absence of heart disease.
+\end{enumerate}
+
+
+
+\begin{figure}
     \centering
-    \caption{Undergraduate report template structure}
-    \label{tab:gen_template}
-    \begin{tabular}{llll}     
-        \toprule
-        \multirow{7}{3cm}{Frontmatter} 
-        & & Title Page & \\                  
-        & & Abstract &    \\          
-        & & Acknowledgements & \\                            
-        & & Table of Contents &    \\                                
-        & & List of Figures   &    \\                        
-        & & List of Tables    &    \\                
-        & & List of Abbreviations  &    \\                     
-        & &   &    \\                        
-        \multirow{7}{3cm}{Main text}
-        & Chapter 1 & Introduction   &    \\                         
-        & Chapter 2 & Literature Review   &    \\
-        & Chapter 3 & Methodology   &    \\
-        & Chapter 4 & Results    &    \\
-        & Chapter 5 & Discussion and Analysis  &    \\
-        & Chapter 6 & Conclusions and Future Work  &    \\        
-        & Chapter 7 & Refection  &    \\          
-        & &   &    \\                       
-        \multirow{2}{3cm}{End matter}
-        & & References  &    \\   
-        & & Appendices (Optional)  &    \\ 
-        & & Index (Optional)  &    \\ 
-        \bottomrule
-    \end{tabular}
-\end{table}
+    \includegraphics[width=1.0\textwidth]{figures/Datasettop10patients.png}
+    \caption{Top 10 patient data from dataset}
+    \label{fig:example}
+\end{figure}
 
 \subsection{Example of a software/Web development main text structure}
 \label{subsec:se_chpters}
