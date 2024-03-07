@@ -6,7 +6,7 @@
 
 \section{Dataset Description}
 
-The Kaggle heart disease dataset\cite{lapp-heart-disease-dataset-1988}, which has 303 samples with 14 attributes each, was used in this investigation. The dataset includes a number of clinical characteristics that are frequently used to determine whether a patient has cardiac disease. Each sample has the following characteristics and represents a patient:
+The Kaggle heart disease dataset\cite{lapp-heart-disease-dataset-1988}, which has 1025 samples with 14 attributes each, was used in this investigation. The dataset includes a number of clinical characteristics that are frequently used to determine whether a patient has cardiac disease. Each sample has the following characteristics and represents a patient:
 
 \begin{enumerate}
     \item Age (\textit{age}): The age of the patient in years.
@@ -24,6 +24,28 @@ The Kaggle heart disease dataset\cite{lapp-heart-disease-dataset-1988}, which ha
     \item Thalassemia (\textit{thal}): The thalassemia status of the patient, categorized into three types: normal (3), fixed defect (6), and reversible defect (7).
     \item Target (\textit{target}): The presence of heart disease in the patient, where 1 indicates the presence of heart disease and 0 indicates the absence of heart disease.
 \end{enumerate}
+\subsection{Target Variable}
+The target variable, \textit{target}, indicates the presence of heart disease and is binary, where 1 represents disease present and 0 represents disease not present.
+
+\subsection{Data Types}
+The dataset consists of the following features with their respective data types:
+\begin{itemize}
+    \item \textbf{age}: integer
+    \item \textbf{sex}: integer
+    \item \textbf{cp}: integer
+    \item \textbf{trestbps}: integer
+    \item \textbf{chol}: integer
+    \item \textbf{fbs}: integer
+    \item \textbf{restecg}: integer
+    \item \textbf{thalach}: integer
+    \item \textbf{exang}: integer
+    \item \textbf{oldpeak}: float
+    \item \textbf{slope}: integer
+    \item \textbf{ca}: integer
+    \item \textbf{thal}: integer
+    \item \textbf{target}: integer
+\end{itemize}
+
 
 
 
@@ -33,33 +55,25 @@ The Kaggle heart disease dataset\cite{lapp-heart-disease-dataset-1988}, which ha
     \caption{Top 10 patient data from dataset}
     \label{fig:example}
 \end{figure}
+\section{Software Used}
+The implementation and comparison of SVM and Random Forest models were performed using Python along with the following libraries:
+\begin{itemize}
+    \item \textbf{Python}: Python programming language was used as the primary language for coding the models.
+    \item \textbf{pandas}: The pandas library was utilized for data manipulation and analysis, including reading the dataset, creating dataframes, and structuring the data.
+    \item \textbf{scikit-learn (sklearn)}: The scikit-learn library was used for implementing the SVM and Random Forest algorithms, as well as for data preprocessing, model training, and evaluation.
+\end{itemize}
+These libraries provided the necessary tools and functions to effectively implement and compare the models, ensuring a robust and efficient analysis of the dataset.
 
-\subsection{Example of a software/Web development main text structure}
-\label{subsec:se_chpters}
-Notice that the ``methodology'' Chapter of Software/Web development in Table~\ref{tab:soft_eng_temp} takes a standard software engineering paradigm (approach). Alternatively, these suggested sections can be the chapters of their own. Also, notice that ``Chapter 5'' in Table~\ref{tab:soft_eng_temp} is ``Testing and Validation'' which is different from the general report template mentioned in Table~\ref{tab:gen_template}. Check with your supervisor if in doubt.
-\begin{table}[ht!]
+\section{Data preparation and cleaning}
+As an initial step for preparing and cleaning data in this study, a dataset comprising 1025 samples is read from a CSV file and transformed into a table using Python's pandas library. This procedure involves loading the dataset, associating the columns with their corresponding values, and constructing a table containing the samples. This process is crucial for structuring the data in an organized manner, which will simplify subsequent tasks such as data cleaning, managing missing values, and preparing the data for training and testing the SVM and Random Forest models.
+\subsection{Dataset Loading and Data Type Definition}To prepare the data for analysis, I first categorized each column based on its data type. Subsequently, I imported the dataset from a CSV file into a Pandas DataFrame. This step was crucial for organizing and analyzing the data efficiently.
+\begin{figure}
     \centering
-    \caption{Example of a software engineering-type report structure}
-    \label{tab:soft_eng_temp}
-    \begin{tabular}{lll}     
-        \toprule                   
-        Chapter 1 & Introduction   &    \\        
-        Chapter 2 & Literature Review  &    \\                   
-        Chapter 3 & Methodology   &    \\
-        &               & Requirements specifications   \\
-        &               & Analysis   \\
-        &               & Design   \\
-        &               & Implementations   \\
-        Chapter 4 & Testing and Validation  &    \\
-        Chapter 5 & Results and Discussion      &    \\
-        Chapter 6 & Conclusions and Future Work  &    \\        
-        Chapter 7 & Reflection  &    \\                          
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\subsection{Example of an algorithm analysis main text structure}
-Some project might involve the implementation of a state-of-the-art algorithm and its performance analysis and comparison with other algorithms. In that case, the suggestion in Table~\ref{tab:algo_temp} may suit you the best. 
+    \includegraphics[width=1.0\textwidth]{figures/loaddata.png}
+    \caption{Load data and data type definition}
+    \label{fig:example}
+\end{figure}
+Table~\ref{tab:algo_temp} may suit you the best. 
 \begin{table}[ht!]
     \centering
     \caption{Example of an algorithm analysis type report structure}
@@ -80,28 +94,6 @@ Some project might involve the implementation of a state-of-the-art algorithm an
     \end{tabular}
 \end{table}
 
-\subsection{Example of an application type main text structure}
-If you are applying some algorithms/tools/technologies on some problems/datasets/etc., you may use the methodology section prescribed in Table~\ref{tab:app_temp}.  
-\begin{table}[ht!]
-    \centering
-    \caption{Example of an application type report structure}
-    \label{tab:app_temp}
-    \begin{tabular}{lll}     
-        \toprule                   
-        Chapter 1 & Introduction  &    \\        
-        Chapter 2 & Literature Review  &    \\                
-        Chapter 3 & Methodology   &    \\
-        &               & Problems (tasks) descriptions  \\
-        &               & Algorithms/tools/technologies/etc. descriptions  \\        
-        &               & Implementations   \\
-        &               & Experiments design and setup   \\
-        Chapter 4 & Results       &  \\
-        Chapter 5 & Discussion and Analysis  &    \\
-        Chapter 6 & Conclusion and Future Work  &    \\        
-        Chapter 7 & Reflection  &    \\          
-        \bottomrule
-    \end{tabular}
-\end{table}
 
 \subsection{Example of a science lab-type main text structure}
 If you are doing a science lab experiment type of project, you may use the  methodology section suggested in Table~\ref{tab:lab_temp}. In this kind of project, you may refer to the ``Methodology'' section as ``Materials and Methods.''
