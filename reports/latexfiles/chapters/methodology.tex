@@ -73,52 +73,14 @@ As an initial step for preparing and cleaning data in this study, a dataset comp
     \caption{Load data and data type definition}
     \label{fig:example}
 \end{figure}
-Table~\ref{tab:algo_temp} may suit you the best. 
-\begin{table}[ht!]
-    \centering
-    \caption{Example of an algorithm analysis type report structure}
-    \label{tab:algo_temp}
-    \begin{tabular}{lll}     
-        \toprule                   
-        Chapter 1 & Introduction  &    \\        
-        Chapter 2 & Literature Review  &    \\                
-        Chapter 3 & Methodology   &    \\
-        &               & Algorithms descriptions  \\
-        &               & Implementations   \\
-        &               & Experiments design   \\
-        Chapter 4 & Results       &  \\
-        Chapter 5 & Discussion and Analysis  &    \\
-        Chapter 6 & Conclusion and Future Work  &    \\        
-        Chapter 7 & Reflection  &    \\          
-        \bottomrule
-    \end{tabular}
-\end{table}
 
 
-\subsection{Example of a science lab-type main text structure}
-If you are doing a science lab experiment type of project, you may use the  methodology section suggested in Table~\ref{tab:lab_temp}. In this kind of project, you may refer to the ``Methodology'' section as ``Materials and Methods.''
-\begin{table}[ht!]
-    \centering
-    \caption{Example of a science lab experiment-type report structure}
-    \label{tab:lab_temp}
-    \begin{tabular}{lll}     
-        \toprule                   
-        Chapter 1 & Introduction  &    \\        
-        Chapter 2 & Literature Review  &    \\                
-        Chapter 3 & Materials and Methods   &    \\
-        &               & Problems (tasks) description  \\
-        &               & Materials \\        
-        &               & Procedures  \\                
-        &               & Implementations   \\
-        &               & Experiment set-up   \\
-        Chapter 4 & Results       &  \\
-        Chapter 5 & Discussion and Analysis  &    \\
-        Chapter 6 & Conclusion and Future Work  &    \\        
-        Chapter 7 & Reflection  &    \\          
-        \bottomrule
-    \end{tabular}
-\end{table}
+\subsection{Handling missing values}
+Next step in our data analysis is to check for missing values in the dataset and deciding on how to handle them. We used python to inspect the dataset for missing values to analyze and found that there were 0 missing values. Consequently, no values needed to be replaced. Initially, we planned to fill any missing values with the mean, but since there were none, this step was not applicable in our data cleaning process.
+\subsection{Eliminate Duplicate Values}
+In the data cleaning phase, we detected and eliminated \textbf{723} duplicate entries from the dataset consisting of 1025 rows. This process was carried out using Python and the pandas library, which offers a \texttt{drop\_duplicates()} method for identifying and removing duplicate rows while preserving the first occurence of a duplicated row.
 
+ This step is crucial as duplicate entries can distort our analysis and lead to inaccurate findings. By eliminating duplicates, we ensure the consistency and accuracy of our dataset, enhancing its reliability for subsequent data analysis and modeling endeavors.
 \section{Example of an Equation in \LaTeX}
 Eq.~\ref{eq:eq_example} [note that this is an example of an equation's in-text citation] is an example of an equation in \LaTeX. In Eq.~\eqref{eq:eq_example}, $ s $ is the mean of elements $ x_i \in \mathbf{x} $: 
 
