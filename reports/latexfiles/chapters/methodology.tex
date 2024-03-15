@@ -81,15 +81,25 @@ Next step in our data analysis is to check for missing values in the dataset and
 In the data cleaning phase, we detected and eliminated \textbf{723} duplicate entries from the dataset consisting of 1025 rows. This process was carried out using Python and the pandas library, which offers a \texttt{drop\_duplicates()} method for identifying and removing duplicate rows while preserving the first occurence of a duplicated row.
 
  This step is crucial as duplicate entries can distort our analysis and lead to inaccurate findings. By eliminating duplicates, we ensure the consistency and accuracy of our dataset, enhancing its reliability for subsequent data analysis and modeling endeavors.
-\section{Example of an Equation in \LaTeX}
-Eq.~\ref{eq:eq_example} [note that this is an example of an equation's in-text citation] is an example of an equation in \LaTeX. In Eq.~\eqref{eq:eq_example}, $ s $ is the mean of elements $ x_i \in \mathbf{x} $: 
+\subsection{Data Preprocessing and Transformation}
 
-\begin{equation}
-\label{eq:eq_example} % label used to refer the eq in text
-s = \frac{1}{N} \sum_{i = 1}^{N} x_i. 
-\end{equation}
+In this section, we describe the preprocessing and transformation steps applied to the raw dataset to prepare it for analysis and modeling.
 
-Have you noticed that all the variables of the equation are defined using the \textbf{in-text} maths command \$.\$, and Eq.~\eqref{eq:eq_example} is treated as a part of the sentence with proper punctuation? Always treat an equation or expression as a part of the sentence. 
+
+\subsubsection{Data Transformation}
+
+The dataset underwent several transformations to enhance its suitability for machine learning algorithms:
+
+\begin{itemize}
+    \item \textbf{Normalization}: The columns 'age', 'trestbps', 'chol', 'thalach', and 'oldpeak' were normalized using the Min-Max scaling technique to a range of [0, 1].
+    
+    \item \textbf{Standardization}: The same columns were also standardized using the StandardScaler to have a mean of 0 and a standard deviation of 1.
+    
+    \item \textbf{One-Hot Encoding}: Categorical variables including 'sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', and 'thal' were one-hot encoded to convert them into binary format.
+\end{itemize}
+
+The transformed dataset was saved into a single CSV file for further analysis and modeling.
+
 
 \section{Example of a Figure in \LaTeX}
 Figure~\ref{fig:chart_a} is an example of a figure in \LaTeX. For more details, check the link:

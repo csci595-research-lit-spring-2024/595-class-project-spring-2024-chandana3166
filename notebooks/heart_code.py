@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # Load the data from the CSV file
 df = pd.read_csv('heart.csv')
@@ -54,3 +55,31 @@ duplicates_removed = rows_before - rows_after
 df.to_csv('cleaned_dataset.csv', index=False)
 
 print(f"Removed {duplicates_removed} duplicates.")
+
+
+# Load the cleaned dataset
+df = pd.read_csv('heart_cleaned.csv')
+
+# Normalize the columns
+scaler = MinMaxScaler()
+normalized_data = scaler.fit_transform(df[['age', 'trestbps', 'chol', 'thalach', 'oldpeak']])
+normalized_df = pd.DataFrame(normalized_data, columns=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'])
+
+# Standardize the columns
+scaler = StandardScaler()
+standardized_data = scaler.fit_transform(df[['age', 'trestbps', 'chol', 'thalach', 'oldpeak']])
+standardized_df = pd.DataFrame(standardized_data, columns=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'])
+
+# One-hot encode categorical variables
+one_hot_encoded_df = pd.get_dummies(df, columns=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'])
+
+# Combine all dataframes and save to single csv file 
+final_df = pd.concat([normalized_df, standardized_df, one_hot_encoded_df], axis=1)
+final_df.to_csv('transformed_heartdata.csv', index=False)
+
+
+
+print("The cleaned dataset has been transformed using normalization, standardization, and one-hot encoding of categorical values to improve data processing.")
+
+
+
