@@ -154,6 +154,61 @@ rf_accuracy = accuracy_score(y_test, y_pred_rf)
 print(f"SVM Accuracy: {svm_accuracy}")
 print(f"Random Forest Accuracy: {rf_accuracy}")
 
+from sklearn.metrics import confusion_matrix, accuracy_score, f1_score
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Assuming you have trained SVM and Random Forest classifiers named svm_clf and rf_clf
+# and x_train, x_test, y_train, y_test are your training and testing sets
+
+# SVM predictions
+svm_preds = svm_clf.predict(x_test)
+
+# Random Forest predictions
+rf_preds = rf_clf.predict(x_test)
+
+# Confusion matrix for SVM
+svm_cm = confusion_matrix(y_test, svm_preds)
+
+# Confusion matrix for Random Forest
+rf_cm = confusion_matrix(y_test, rf_preds)
+
+# Accuracy for SVM and Random Forest
+svm_acc = accuracy_score(y_test, svm_preds)
+rf_acc = accuracy_score(y_test, rf_preds)
+
+# F1 score for SVM and Random Forest
+svm_f1 = f1_score(y_test, svm_preds)
+rf_f1 = f1_score(y_test, rf_preds)
+
+# Correlation matrix
+correlation_matrix = df.corr()
+
+# Plot confusion matrices
+plt.figure(figsize=(12, 6))
+plt.subplot(1, 2, 1)
+sns.heatmap(svm_cm, annot=True, cmap='Blues', fmt='g')
+plt.title('SVM Confusion Matrix')
+
+plt.subplot(1, 2, 2)
+sns.heatmap(rf_cm, annot=True, cmap='Blues', fmt='g')
+plt.title('Random Forest Confusion Matrix')
+
+plt.show()
+
+# Print accuracy and F1 score
+print("SVM Accuracy:", svm_acc)
+print("SVM F1 Score:", svm_f1)
+print("Random Forest Accuracy:", rf_acc)
+print("Random Forest F1 Score:", rf_f1)
+
+# Plot correlation matrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('Correlation Matrix')
+plt.show()
+
+
 
 
 
