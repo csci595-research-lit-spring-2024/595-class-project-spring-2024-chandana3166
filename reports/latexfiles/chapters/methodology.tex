@@ -81,33 +81,38 @@ Next step in our data analysis is to check for missing values in the dataset and
 In the data cleaning phase, we detected and eliminated \textbf{723} duplicate entries from the dataset consisting of 1025 rows. This process was carried out using Python and the pandas library, which offers a \texttt{drop\_duplicates()} method for identifying and removing duplicate rows while preserving the first occurence of a duplicated row.
 
  This step is crucial as duplicate entries can distort our analysis and lead to inaccurate findings. By eliminating duplicates, we ensure the consistency and accuracy of our dataset, enhancing its reliability for subsequent data analysis and modeling endeavors.
-\subsection{Data Preprocessing and Transformation}
-
-In this section, we describe the preprocessing and transformation steps applied to the raw dataset to prepare it for analysis and modeling.
 
 
-\subsubsection{Data Transformation}
-
-The dataset underwent several transformations to enhance its suitability for machine learning algorithms:
-
+\section{Evaluation Metrics}
+\textbf{Evaluation Metrics Summary:}
 \begin{itemize}
-    \item \textbf{Normalization}: The columns 'age', 'trestbps', 'chol', 'thalach', and 'oldpeak' were normalized using the Min-Max scaling technique to a range of [0, 1].
-    
-    \item \textbf{Standardization}: The same columns were also standardized using the StandardScaler to have a mean of 0 and a standard deviation of 1.
-    
-    \item \textbf{One-Hot Encoding}: Categorical variables including 'sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', and 'thal' were one-hot encoded to convert them into binary format.
-\end{itemize}
+\textbf{F1 Score:} The F1 Score offers a fair evaluation of both metrics since it is the harmonic mean of Precision and Recall. Better performance is indicated by a higher value, which goes from 0 to 1. When handling skewed datasets, the F1 Score proves to be a more robust metric than Accuracy.
+\[ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \]
 
-The transformed dataset was saved into a single CSV file for further analysis and modeling.
+\textbf{Accuracy:} The percentage of correctly predicted instances out of the total instances. It is calculated as:
+\[ \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} \times 100 \]
+An overall indicator of the model's effectiveness across all classes is its accuracy. Since a high accuracy can be attained by merely projecting the majority class in every instance, it can be deceptive in situations when the classes are unbalanced. Therefore, to obtain a more comprehensive understanding of the model's performance, accuracy should be utilized in conjunction with other measures like precision and recall.
+\\
+
+\textbf{Precision:} The proportion of true positive predictions among all positive predictions. It is calculated as:
+\[ \text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}} \]
+
+\textbf{Recall:} The proportion of true positive predictions among all actual positive instances. It is calculated as:
+\[ \text{Recall} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}} \]
+
+\textbf{Confusion Matrix:} A table that describes the performance of a classification model. It contains four important metrics:
+\[
+\begin{array}{|c|c|}
+\hline
+\text{True Negative (TN)} & \text{False Positive (FP)} \\
+\hline
+\text{False Negative (FN)} & \text{True Positive (TP)} \\
+\hline
+\end{array}
+\]
 
 
-\section{Example of a Figure in \LaTeX}
-Figure~\ref{fig:chart_a} is an example of a figure in \LaTeX. For more details, check the link:
 
-\href{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}{wikibooks.org/wiki/LaTeX/Floats,\_Figures\_and\_Captions}.
-
-\noindent
-Keep your artwork (graphics, figures, illustrations) clean and readable. At least 300dpi is a good resolution of a PNG format artwork. However, an SVG format artwork saved as a PDF will produce the best quality graphics. There are numerous tools out there that can produce vector graphics and let you save that as an SVG file and/or as a PDF file. One example of such a tool is the ``Flow algorithm software''. Here is the link for that: \href{http://www.flowgorithm.org/download/}{flowgorithm.org}.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.3]{figures/chart.pdf}
