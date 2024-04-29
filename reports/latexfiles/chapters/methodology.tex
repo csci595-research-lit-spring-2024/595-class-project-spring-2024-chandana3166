@@ -110,125 +110,63 @@ An overall indicator of the model's effectiveness across all classes is its accu
 \hline
 \end{array}
 \]
+\
+
+\section{Model Training and Testing:}
+
+Beghdadi et al. (2020) highlight in their study how feature selection techniques, classifiers, datasets, and the training-test ratio all directly affect performance. They emphasize how crucial sample selection techniques are to guaranteeing the proper operation of the system during the testing and training phases. In order to choose samples for a stable system design, the authors advise using a stratified systematic sampling theorem.
+
+In order to guarantee there was enough data for training and accurate assessment of the models' performance, I used a similar strategy in my research, splitting the dataset into training and testing sets using an 80-20 ratio. Better underlying pattern recognition in the data is made possible by this separation, which enhances generalization to previously unidentified data.
+\begin{lstlisting}[style=mystyle, caption={Loading data, splitting dataset, and standardizing features in Python.}, label=pythoncode]
+# Loading cleaned data csv file
+data = pd.read_csv("cleaned_dataset.csv")
+
+#Dataset is split into features and target
+X = data.drop('target', axis=1)
+y = data['target']
+
+# 0.2 indicates 20 % data for testing and rest 80% for training the models
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Standardizing the features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+\end{lstlisting}
+
+The linear kernel is used in the training and testing of SVM models because it works well in situations where the data can be divided linearly, which makes it possible for the algorithm to quickly choose the best hyperplane to divide the classes. Furthermore, linear kernels frequently result in simpler models, which can be advantageous for interpretability and implementation, and are less likely to overfit, particularly in high-dimensional environments
+
+\begin{lstlisting}[style=mystyle, caption={SVM training and testing}, label=pythoncode2]
+# Train and test SVM model
+svm_model = SVC(kernel='linear')
+svm_model.fit(X_train_scaled, y_train)
+svm_predictions = svm_model.predict(X_test_scaled)
+
+# Evaluate SVM model
+svm_accuracy = accuracy_score(y_test, svm_predictions)
+svm_precision = precision_score(y_test, svm_predictions)
+svm_recall = recall_score(y_test, svm_predictions)
+svm_f1 = f1_score(y_test, svm_predictions)
+svm_confusion_matrix = confusion_matrix(y_test, svm_predictions)
+\end{lstlisting}
+
+\begin{lstlisting}[style=mystyle, caption={Random Forest Training and Testing}, label=pythoncode3]
+# Train and test Random Forest model
+rf_model = RandomForestClassifier(random_state=42)
+rf_model.fit(X_train, y_train)
+rf_predictions = rf_model.predict(X_test)
+
+# Evaluate Random Forest model
+rf_accuracy = accuracy_score(y_test, rf_predictions)
+rf_precision = precision_score(y_test, rf_predictions)
+rf_recall = recall_score(y_test, rf_predictions)
+rf_f1 = f1_score(y_test, rf_predictions)
+rf_confusion_matrix = confusion_matrix(y_test, rf_predictions)
+\end{lstlisting}
 
 
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.3]{figures/chart.pdf}
-    \caption{Example figure in \LaTeX.}
-    \label{fig:chart_a}
-\end{figure}
 
-\clearpage %  use command \clearpage when you want section or text to appear in the next page.
 
-\section{Example of an algorithm in \LaTeX}
-Algorithm~\ref{algo:algo_example} is a good example of an algorithm in \LaTeX.  
-\begin{algorithm}
-    \caption{Example caption: sum of all even numbers}
-    \label{algo:algo_example}
-    \begin{algorithmic}[1]
-        \Require{$ \mathbf{x}  = x_1, x_2, \ldots, x_N$}
-        \Ensure{$EvenSum$ (Sum of even numbers in $ \mathbf{x} $)}
-        \Statex
-        \Function{EvenSummation}{$\mathbf{x}$}
-        \State {$EvenSum$ $\gets$ {$0$}}
-        \State {$N$ $\gets$ {$length(\mathbf{x})$}}
-        \For{$i \gets 1$ to $N$}                    
-        \If{$ x_i\mod 2 == 0$}  \Comment check if a number is even?
-        \State {$EvenSum$ $\gets$ {$EvenSum + x_i$}}
-        \EndIf
-        \EndFor
-        \State \Return {$EvenSum$}
-        \EndFunction
-    \end{algorithmic}
-\end{algorithm}
+
  
-\section{Example of code snippet  in \LaTeX}
-
-Code Listing~\ref{list:python_code_ex} is a good example of including a code snippet in a report. While using code snippets, take care of the following:
-\begin{itemize}
-    \item do not paste your entire code (implementation) or everything you have coded. Add code snippets only. 
-    \item The algorithm shown in Algorithm~\ref{algo:algo_example} is usually preferred over code snippets in a technical/scientific report. 
-    \item Make sure the entire code snippet or algorithm stays on a single page and does not overflow to another page(s).  
-\end{itemize}
-
-Here are three examples of code snippets for three different languages (Python, Java, and CPP) illustrated in Listings~\ref{list:python_code_ex}, \ref{list:java_code_ex}, and \ref{list:cpp_code_ex} respectively.  
-
-\begin{lstlisting}[language=Python, caption={Code snippet in \LaTeX ~and  this is a Python code example}, label=list:python_code_ex]
-import numpy as np
-
-x  = [0, 1, 2, 3, 4, 5] # assign values to an array
-evenSum = evenSummation(x) # call a function
-
-def evenSummation(x):
-    evenSum = 0
-    n = len(x)
-    for i in range(n):
-        if np.mod(x[i],2) == 0: # check if a number is even?
-            evenSum = evenSum + x[i]
-    return evenSum
-\end{lstlisting}
-
-Here we used  the ``\textbackslash clearpage'' command and forced-out the second listing example onto the next page. 
-\clearpage  %
-\begin{lstlisting}[language=Java, caption={Code snippet in \LaTeX ~and  this is a Java code example}, label=list:java_code_ex]
-public class EvenSum{ 
-    public static int evenSummation(int[] x){
-        int evenSum = 0;
-        int n = x.length;
-        for(int i = 0; i < n; i++){
-            if(x[i]%2 == 0){ // check if a number is even?
-                evenSum = evenSum + x[i];
-            }
-        }
-        return evenSum;     
-    }
-    public static void main(String[] args){ 
-        int[] x  = {0, 1, 2, 3, 4, 5}; // assign values to an array
-        int evenSum = evenSummation(x);
-        System.out.println(evenSum);
-    } 
-} 
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=C, caption={Code snippet in \LaTeX ~and  this is a C/C++ code example}, label=list:cpp_code_ex]
-int evenSummation(int x[]){
-    int evenSum = 0;
-    int n = sizeof(x);
-    for(int i = 0; i < n; i++){
-        if(x[i]%2 == 0){ // check if a number is even?
-            evenSum = evenSum + x[i];
-    	}
-    }
-    return evenSum;     
-}
-
-int main(){
-    int x[]  = {0, 1, 2, 3, 4, 5}; // assign values to an array
-    int evenSum = evenSummation(x);
-    cout<<evenSum;
-    return 0;
-}
-\end{lstlisting}
-
-
-
-\section{Example of in-text citation style}
-\subsection{Example of the equations and illustrations placement and reference in the text}
-Make sure whenever you refer to the equations, tables, figures, algorithms,  and listings for the first time, they also appear (placed) somewhere on the same page or in the following page(s). Always make sure to refer to the equations, tables and figures used in the report. Do not leave them without an \textbf{in-text citation}. You can refer to equations, tables and figures more them once.
-
-\subsection{Example of the equations and illustrations style}
-Write \textbf{Eq.} with an uppercase ``Eq`` for an equation before using an equation number with (\textbackslash eqref\{.\}). Use ``Table'' to refer to a table, ``Figure'' to refer to a figure, ``Algorithm'' to refer to an algorithm and ``Listing'' to refer to listings (code snippets). Note that, we do not use the articles ``a,'' ``an,'' and ``the'' before the words Eq., Figure, Table, and Listing, but you may use an article for referring the words figure, table, etc. in general.
-
-For example, the sentence ``A report structure is shown in \textbf{the} Table~\ref{tab:gen_template}'' should be written as ``A report structure is shown \textbf{in} Table~\ref{tab:gen_template}.'' 
- 
-
-\section{Summary}
-Write a summary of this chapter.
-
-~\\[5em]
-\noindent
-{\huge\textbf{Note:}} In the case of \textbf{software engineering} project a Chapter ``\textbf{Testing and Validation}'' should precede the ``Results'' chapter. See Section~\ref{subsec:se_chpters} for report organization of such project. 
-
