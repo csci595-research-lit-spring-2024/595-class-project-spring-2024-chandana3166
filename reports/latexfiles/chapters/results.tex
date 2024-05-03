@@ -1,22 +1,39 @@
 \chapter{Results}
 \label{ch:results}
-The results chapter tells a reader about your findings based on the methodology you have used to solve the investigated problem. For example: 
-\begin{itemize}
-    \item If your project aims to develop a software/web application, the results may be the developed software/system/performance of the system, etc., obtained using a relevant methodological approach in software engineering. 
-    
-    \item If your project aims to implement an algorithm for its analysis, the results may be the performance of the algorithm obtained using a relevant experiment design. 
-    
-    \item If your project aims to solve some problems/research questions over a collected dataset, the results may be the findings obtained using the applied tools/algorithms/etc. 
-\end{itemize}
-Arrange your results and findings in a logical sequence. 
+The preprocessed dataset, contained in the "cleaneddataset.csv" file, was taken from the Kaggle heart disease dataset and used to assess the performance of the Support Vector Machine (SVM) and Random Forest models. There are 302 samples in this collection, and each sample has 14 variables, including clinical characteristics that are used to identify heart disease.
+\\
+Key performance indicators like as F1 Score, Accuracy, Precision, and Recall were used to evaluate the models. These measurements provide insight into how well the models categorize patients into those with and without cardiac disease. 
+\\
 
 
+\section{Performance Comparison of SVM and Random Forest Models}
 
-\section{A section}
+\begin{table}[H]
+    \centering
+    \caption{Performance Metrics of SVM Model}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Metric} & \textbf{Training} & \textbf{Testing} \\ \hline
+    Accuracy        & 0.8631            & 0.7705           \\ \hline
+    Precision       & 0.8542            & 0.7273           \\ \hline
+    Recall          & 0.9111            & 0.8276           \\ \hline
+    F1 Score        & 0.8817            & 0.7742           \\ \hline
+    \end{tabular}
+\end{table}
 
-...
+\begin{table}[H]
+    \centering
+    \caption{Performance Metrics of Random Forest Model}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Metric} & \textbf{Training} & \textbf{Testing} \\ \hline
+    Accuracy        & 0.9129            & 0.8033           \\ \hline
+    Precision       & 0.8958            & 0.7429           \\ \hline
+    Recall          & 0.9556            & 0.8966           \\ \hline
+    F1 Score        & 0.9247            & 0.8125           \\ \hline
+    \end{tabular}
+\end{table}
 
-\clearpage
 \section{Example of a Table in \LaTeX}
 Table~\ref{tab:_ex_tab} is an example of a table created using the package \LaTeX  ``booktabs.'' do check the link: \href{https://en.wikibooks.org/wiki/LaTeX/Tables}{wikibooks.org/wiki/LaTeX/Tables} for more details. A table should be clean and readable. Unnecessary horizontal lines and vertical lines in tables make them unreadable and messy. The example in Table~\ref{tab:_ex_tab} uses a minimum number of liens (only necessary ones). Make sure that the top rule and bottom rule (top and bottom horizontal lines) of a table are present. 
 
